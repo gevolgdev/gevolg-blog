@@ -1,10 +1,17 @@
 import { useState } from 'react'
+import { Outlet } from 'react-router-dom';
+import { GlobalStyle } from './style/GlobalStyle';
 
 function App() {
 
+  const title: string = 'Meu Blog - Gevolg';
+
   return (
-    <h1>Meu Blog - Gevolg</h1>
+    <>
+      <Outlet/>
+      <GlobalStyle/>
+    </>
   )
 }
 
-export default App
+export default App;
