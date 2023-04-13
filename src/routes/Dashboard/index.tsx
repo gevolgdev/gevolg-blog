@@ -24,14 +24,14 @@ const Dashboard: React.FC = () => {
 
   const handleSaveImage = (event: ChangeEvent<HTMLInputElement>): void => {
     if(event.target.files) {
-      const imageFile = event.target.files[0];
-      const imageURL = URL.createObjectURL(imageFile);
+      const imageFile: File | null = event.target.files[0];
+      const imageURL: string = URL.createObjectURL(imageFile);
       setArticle(prev => ({...prev, image: imageURL}));
     };
   };
 
   const handleSaveForms = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { id, value} = event.target;
+    const { id, value} = event.target as HTMLInputElement | HTMLTextAreaElement;
     setArticle(prev => ({...prev, [id]: value}))
   }
 
