@@ -1,7 +1,11 @@
+import { Header } from "../../components";
 
-const Dashboard = () => {
+const Dashboard: React.FC = () => {
   return (
-    <div>Dashboard</div>
+    <>
+      <Header feed/>
+      <div>Dashboard</div>
+    </>
   )
 }
 
