@@ -1,6 +1,5 @@
 import React from 'react';
-import { HeaderContainer } from './style';
-import { Link } from 'react-router-dom';
+import { HeaderContainer, DashboardButton, FeedButton } from './style';
 
 interface PagesProps {
   dashboard?: boolean;
@@ -10,12 +9,12 @@ interface PagesProps {
 const chooseButton: React.FC<PagesProps> = ({dashboard = false, feed = false}) => {
   if (dashboard) {
     return (
-      <Link to='/dashboard'>Novo Artigo</Link>
+      <DashboardButton to='/dashboard'>Novo Artigo</DashboardButton>
     )
   };
   if (feed) {
     return (
-      <Link to='/'>Ver artigos</Link>
+      <FeedButton to='/'>Ver artigos</FeedButton>
     )
   };
   return null;
