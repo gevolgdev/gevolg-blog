@@ -33,7 +33,7 @@ const Dashboard: React.FC = () => {
   const handleSaveForms = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { id, value} = event.target as HTMLInputElement | HTMLTextAreaElement;
     setArticle(prev => ({...prev, [id]: value}))
-  }
+  };
 
   return (
     <DashboardContainer>
