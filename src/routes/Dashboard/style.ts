@@ -81,10 +81,12 @@ export const DashboardContent = styled.div`
       }
     }
     .post {
+      width: 200px;
       background: #22c55e;
       border: none;
       color: white;
       padding: 15px 0;
+      margin-left: auto;
       border-radius: 7px;
       font-size: 1rem;
       cursor: pointer;

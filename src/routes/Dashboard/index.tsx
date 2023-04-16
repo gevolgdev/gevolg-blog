@@ -4,15 +4,14 @@ import { Header } from "../../components";
 import { DashboardContainer, DashboardContent } from "./style";
 import { BsImage, BsFillFileEarmarkCheckFill } from 'react-icons/bs';
 
-interface ArticleProps {
-  subject: string;
-  image: string;
-  title: string;
-  articleBody: string;
-};
+import { ArticleProps } from '../../types/types';
+
+import { useDispatch } from 'react-redux';
+import { addArticle } from '../../redux/sliceArticles';
 
 const Dashboard: React.FC = () => {
   const inputRef = useRef<HTMLInputElement>(null);
+  const dispatch = useDispatch()
 
   const INITIAL_ARTICLE: ArticleProps = {
     subject: '',
@@ -30,9 +29,14 @@ const Dashboard: React.FC = () => {
     };
   };
 
-  const handleSaveForms = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleSaveForms = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
     const { id, value} = event.target as HTMLInputElement | HTMLTextAreaElement;
     setArticle(prev => ({...prev, [id]: value}))
+  };
+
+  const publishArticle = (): void => {
+    dispatch(addArticle(article));
+    setArticle(INITIAL_ARTICLE);
   };
 
   return (
@@ -46,7 +50,7 @@ const Dashboard: React.FC = () => {
           <div className="flex-row">
             <div className="input-container">
               <span>Assunto</span>
-              <input id='subject' type='text' onChange={handleSaveForms}/>
+              <input id='subject' value={article.subject} type='text' onChange={handleSaveForms}/>
             </div>
             <div className="input-container">
               <span>Imagem</span>
@@ -62,15 +66,15 @@ const Dashboard: React.FC = () => {
 
           <div className="input-container">
             <span>Título</span>
-            <input id="title" type='text' onChange={handleSaveForms}/>
+            <input id="title" value={article.title} type='text' onChange={handleSaveForms}/>
           </div>
 
           <div className="input-container">
             <span>Artigo</span>
-            <textarea id='articleBody' onChange={handleSaveForms}/>
+            <textarea id='articleBody' value={article.articleBody} onChange={handleSaveForms}/>
           </div>
 
-          <button className="post">Publicar</button>
+          <button onClick={publishArticle} className="post">Publicar</button>
         </div>
       </DashboardContent>
 
