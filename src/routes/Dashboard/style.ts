@@ -3,6 +3,11 @@ import styled from 'styled-components';
 export const DashboardContainer = styled.section`
   width: 1128px;
   margin: 0 auto;
+
+  @media (max-width: 800px) {
+    width: 100%;
+    padding: 0 16px;
+  }
 `
 
 export const DashboardContent = styled.div`
@@ -27,6 +32,10 @@ export const DashboardContent = styled.div`
       display: flex;
       flex-direction: row;
       gap: 15px;
+
+      @media (max-width: 800px) {
+        flex-direction: column;
+      }
     }
     .input-container {
       flex: 1;
@@ -90,6 +99,10 @@ export const DashboardContent = styled.div`
       border-radius: 7px;
       font-size: 1rem;
       cursor: pointer;
+
+      @media (max-width: 800px) {
+        width: 100%;
+      }
     }
   }
 `

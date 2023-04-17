@@ -24,6 +24,11 @@ export const ArticleContainer = styled.div<StyleProps>`
       background: ${props => props.image ? `url(${props.image}) no-repeat` : 'transparent'};
       background-size: cover;
       background-position: center;
+      
+      @media (max-width: 800px) {
+        width: 100%;
+        height: 200px;
+      }
     }
     .infos {
       width: auto;
@@ -37,6 +42,10 @@ export const ArticleContainer = styled.div<StyleProps>`
         margin-top: 15px;
         line-height: 1.6rem;
       }
+    }
+
+    @media (max-width: 800px) {
+      flex-direction: column;
     }
   }
 

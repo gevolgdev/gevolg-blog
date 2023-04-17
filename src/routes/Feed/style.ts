@@ -6,6 +6,11 @@ export const FeedContainer = styled.section`
   h1 {
     font-size: 3rem;
   }
+
+  @media (max-width: 800px) {
+    width: 100%;
+    padding: 0 16px;
+  }
 `
 
 export const FeedContent = styled.div`
@@ -19,5 +24,9 @@ export const FeedContent = styled.div`
   .empty {
     margin: 50px auto 0;
     opacity: 60%;
+  }
+
+  @media (max-width: 800px) {
+    width: 100%;
   }
 `
