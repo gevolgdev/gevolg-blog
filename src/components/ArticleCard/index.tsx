@@ -7,12 +7,11 @@ interface Props {
 
 const Article: React.FC<Props> = (props) => {
   const { article } = props;
-
-  const date: string = new Date().toLocaleString();
+  console.log(article)
 
   return (
     <ArticleContainer image={article.image}>
-      <span className='details'>{date} • {article.subject}</span>
+      <span className='details'>{article.time} • {article.subject}</span>
 
       <div className="content">
 
