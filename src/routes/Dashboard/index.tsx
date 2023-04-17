@@ -3,6 +3,8 @@ import { useRef, useState, ChangeEvent } from 'react';
 import { Header } from "../../components";
 import { DashboardContainer, DashboardContent } from "./style";
 import { BsImage, BsFillFileEarmarkCheckFill } from 'react-icons/bs';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { ArticleProps } from '../../types/types';
 
@@ -37,12 +39,13 @@ const Dashboard: React.FC = () => {
   const publishArticle = (): void => {
     dispatch(addArticle(article));
     setArticle(INITIAL_ARTICLE);
+    toast('Seu artigo foi publicado!')
   };
 
   return (
     <DashboardContainer>
       <Header feed/>
-
+      <ToastContainer theme="light" hideProgressBar={true}/>
       <DashboardContent>
         <h1>Novo Artigo</h1>
         <div className="forms-container">
