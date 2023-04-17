@@ -20,8 +20,18 @@ const Dashboard: React.FC = () => {
     image: '',
     title: '',
     articleBody: '',
+    time: '',
   };
   const [article, setArticle] = useState<ArticleProps>(INITIAL_ARTICLE);
+
+  const date: Date = new Date();
+  const day: string = date.getDay().toString().padStart(2,'0');
+  const month: string = date.getMonth().toString().padStart(2,'0');
+  const year: string = date.getFullYear().toString();
+
+  const hours: string = date.getHours().toString().padStart(2, '0');
+  const minutes: string = date.getMinutes().toString().padStart(2, '0');
+  const formattedDate: string = `${day}/${month}/${year} - ${hours}:${minutes}`
 
   const handleSaveImage = (event: ChangeEvent<HTMLInputElement>): void => {
     if(event.target.files) {
@@ -33,19 +43,22 @@ const Dashboard: React.FC = () => {
 
   const handleSaveForms = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
     const { id, value} = event.target as HTMLInputElement | HTMLTextAreaElement;
-    setArticle(prev => ({...prev, [id]: value}))
+    setArticle(prev => ({...prev, [id]: value, time: formattedDate}))
   };
 
+  
   const publishArticle = (): void => {
-    dispatch(addArticle(article));
     setArticle(INITIAL_ARTICLE);
-    toast('Seu artigo foi publicado!')
+    dispatch(addArticle(article));
+    toast('Seu artigo foi publicado!');
   };
+  console.log(article)
 
   return (
     <DashboardContainer>
       <Header feed/>
-      <ToastContainer theme="light" hideProgressBar={true}/>
+
+      <ToastContainer theme="light"/>
       <DashboardContent>
         <h1>Novo Artigo</h1>
         <div className="forms-container">
