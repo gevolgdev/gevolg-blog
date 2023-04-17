@@ -6,6 +6,7 @@ const initialState: ArticleProps[] = [{
   image: '',
   title: '',
   articleBody: '',
+  time: '',
 }];
 
 const sliceArticle = createSlice({
@@ -20,6 +21,7 @@ const sliceArticle = createSlice({
           image: payload.image,
           title: payload.title,
           articleBody: payload.articleBody,
+          time: payload.time,
         }
       ]
     }
