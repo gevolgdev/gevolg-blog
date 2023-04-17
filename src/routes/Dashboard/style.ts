@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const DashboardContainer = styled.section`
-  width: 1200px;
+  width: 1128px;
   margin: 0 auto;
 `
 
