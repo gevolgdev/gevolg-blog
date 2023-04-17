@@ -13,10 +13,12 @@ const Feed: React.FC = () => {
   return (
     <FeedContainer>
       <Header dashboard/>
+      <h1>Meus artigos</h1>
       <FeedContent>
+        {newArticles.length == 0 && <span className="empty">Não há artigos</span>}
         {newArticles.map(item => (
           <ArticleCard article={item}/>
-        ))}
+        )).reverse()}
       </FeedContent>
     </FeedContainer>
   )
