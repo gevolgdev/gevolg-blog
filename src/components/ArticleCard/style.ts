@@ -41,6 +41,10 @@ export const ArticleContainer = styled.div<StyleProps>`
         width: 90%;
         margin-top: 15px;
         line-height: 1.6rem;
+
+        @media (max-width: 800px) {
+          width: 100%;
+        }
       }
     }
 
