@@ -4,4 +4,5 @@ export interface ArticleProps {
   image: string;
   title: string;
   articleBody: string;
+  time: string,
 };
