@@ -8,18 +8,19 @@ interface Props {
 const Article: React.FC<Props> = (props) => {
   const { article } = props;
 
-  console.log(article)
-
-  const date = new Date();
+  const date: string = new Date().toLocaleString();
 
   return (
-    <ArticleContainer>
-      <div>
+    <ArticleContainer image={article.image}>
+      <span className='details'>{date} • {article.subject}</span>
+
+      <div className="content">
+
         <div className="image"/>
-        <div>
-          <span>x • x</span>
-          <h2>x</h2>
-          <p>x</p>
+
+        <div className="infos">
+          <h2>{article.title}</h2>
+          <p>{article.articleBody}</p>
         </div>
       </div>
     </ArticleContainer>
